@@ -34,7 +34,7 @@ jobs:
         run: pnpm coverage --reporter=json-summary --reporter=text
 
       - name: Generate Coverage Badge
-        uses: jaywcjlove/coverage-badge-action@v1
+        uses: jaywcjlove/coverage-badges-cli@v2
         if: github.event_name == 'push'
         with:
           source: coverage/coverage-summary.json
