@@ -1,5 +1,7 @@
 # Linker Sequence Diagrams
 
+![Coverage](.github/badges/coverage.svg)
+
 This directory contains Mermaid sequence diagrams documenting the key features of the Linker application.
 
 ## Overview

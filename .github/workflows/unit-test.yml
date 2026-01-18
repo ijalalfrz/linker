@@ -1,0 +1,48 @@
+name: Unit Test
+
+on:
+  push:
+    branches: ["main", "master"]
+  pull_request:
+    branches: ["main", "master"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  test:
+    name: Run Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run Tests
+        run: pnpm coverage --reporter=json-summary --reporter=text
+
+      - name: Generate Coverage Badge
+        uses: jaywcjlove/coverage-badge-action@v1
+        if: github.event_name == 'push'
+        with:
+          source: coverage/coverage-summary.json
+          output: .github/badges/coverage.svg
+
+      - name: Commit Badge
+        uses: stefanzweifel/git-auto-commit-action@v5
+        if: github.event_name == 'push'
+        with:
+          commit_message: "chore: update coverage badge [skip ci]"
+          file_pattern: .github/badges/coverage.svg
