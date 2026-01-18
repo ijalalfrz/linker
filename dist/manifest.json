@@ -1,0 +1,19 @@
+{
+  "name": "Linker",
+  "author": {
+    "name": "Rizal Alfarizi",
+    "email": "ijal.alfarizi@gmail.com"
+  },
+  "defaultLocale": "en",
+  "private": true,
+  "location": {
+    "support": {
+      "ticket_sidebar": {
+        "url": "assets/app/index.html",
+        "flexible": true
+      }
+    }
+  },
+  "version": "1.0.0",
+  "frameworkVersion": "2.0"
+}

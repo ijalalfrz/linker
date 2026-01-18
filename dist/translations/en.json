@@ -1,0 +1,8 @@
+{
+  "app": {
+    "name": "Linker",
+    "short_description": "Link multiple tickets seamlessly in your zendesk.",
+    "long_description": "Link multiple tickets seamlessly in your zendesk.",
+    "installation_instructions": "Simply click install."
+  }
+}
